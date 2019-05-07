@@ -20,7 +20,9 @@ module.exports = class addRoleCommand extends Command {
                     prompt:"Which role would you like to add?",
                     key:"role"
                 }
-            ]
+            ],
+             clientPermissions: ['BAN_MEMBERS'],
+            userPermissions: ['BAN_MEMBERS'],
         })
     }
     run(msg, { user, role }) {
