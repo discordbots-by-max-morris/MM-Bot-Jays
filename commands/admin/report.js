@@ -25,7 +25,7 @@ module.exports = class ReportCommand extends Commando.Command {
     .setAuthor(msg.author.username, msg.author.displayAvatarURL)
     .setDescription(text)
     .setFooter("send from " + msg.channel.id)
-    this.client.channels.get('567082364476456972').send({embed})
+    this.client.channels.get('574596847385968640').send({embed})
     msg.reply("The report has been sent! Thank You");
     msg.delete();
     }
