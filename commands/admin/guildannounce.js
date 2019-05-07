@@ -7,7 +7,7 @@ module.exports = class AnnounceCommand extends Command {
     super(bot, {
       name: 'announce',
       aliases: ['update', 'lann', 'sendupdate'],
-      group: 'control',
+      group: 'admin',
       memberName: 'announce',
       description: 'Sends an announcemnt to #announcements in SERVER',
       details: oneLine`
