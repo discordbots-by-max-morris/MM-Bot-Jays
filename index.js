@@ -2,7 +2,7 @@ const commando = require('discord.js-commando');
 const discord = require('discord.js');
 const client = new commando.CommandoClient({
   owner: '359835581456580618', // Your ID here.
-  commandPrefix: 'mb!', // The prefix of your bot.
+  commandPrefix: 'A!', // The prefix of your bot.
   unknownCommandResponse: true, // Set this to true if you want to send a message when a user uses the prefix not followed by a command
 });
 
