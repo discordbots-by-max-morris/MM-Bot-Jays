@@ -4,9 +4,9 @@ const discord = require('discord.js');
 class HelpCommand extends commando.Command {
     constructor(client) {
         super(client, {
-            name: 'helpmenu',
-            group: 'fun',
-            memberName: 'helpmenu',
+            name: 'help',
+            group: 'admin',
+            memberName: 'help',
             description: 'Shows the help'
         });
     }
