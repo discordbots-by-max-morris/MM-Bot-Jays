@@ -45,7 +45,8 @@ client.registry
     ['simple', 'simple'],
     ['util', 'util'],
     ['misc', 'Misc'],
-    ['help', 'help']
+    ['help', 'help'],
+    ['settings', 'Settings']
 	])
 	.registerDefaultGroups()
 	.registerDefaultCommands({
