@@ -1,13 +1,13 @@
 const commando = require('discord.js-commando');
 const discord = require('discord.js')
-module.exports = class WarnCommand extends commando.Command
+module.exports = class PartnerCommand extends commando.Command
 {
     constructor(client) {
         super(client, {
-            name: 'warn',
+            name: 'Partner',
             group: 'moderation',
-            memberName: 'warn',
-            description: 'Warns a user and logs the warn to the mod logs.',
+            memberName: 'Partner',
+            description: '',
             guildOnly: true,
             args: [
                 {
@@ -31,4 +31,4 @@ module.exports = class WarnCommand extends commando.Command
     }
 }
 
-module.exports = StartAPatrolCommand
+module.exports = PartnerCommand
