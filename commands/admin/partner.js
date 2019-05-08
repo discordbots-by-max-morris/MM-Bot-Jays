@@ -12,7 +12,7 @@ class StartAPatrolCommand extends commando.Command
                args: [
                 {
                     key: 'member',
-                    prompt: 'What member do you want to warn?',
+                    prompt: 'What member do you want to partner?',
                     type: 'member'
                 }
                    ]
@@ -23,7 +23,7 @@ class StartAPatrolCommand extends commando.Command
     {
         var myInfo = new discord.RichEmbed()
         .setTitle("Partner!")
-        .setDescription(`Thank you ${args} you ***are*** a partner with Ace's hangout server`)
+        .setDescription(`Thank you ${member.user.tag} you ***are*** a partner with Ace's hangout server`)
         .setColor("RANDOM")
         .setThumbnail(message.author.avatarURL)
         .setAuthor("Ace's bot")
