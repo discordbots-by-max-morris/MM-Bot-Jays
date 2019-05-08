@@ -19,7 +19,7 @@ client
 	.on('disconnect', () => { console.warn('Disconnected!'); })
 	.on('reconnecting', () => { console.warn('Reconnecting...'); })
 	.on('commandError', (cmd, err) => {
-		if(err instanceof Commando.FriendlyError) return;
+		if(err instanceof commando.FriendlyError) return;
 		console.error(`Error in command ${cmd.groupID}:${cmd.memberName}`, err);
 })
 	.on('commandBlocked', (msg, reason) => {
@@ -50,7 +50,7 @@ client
 	});
 
 client.setProvider(
-	sql.open(path.join(__dirname, 'database.sqlite3')).then(db => new Commando.SQLiteProvider(db))
+	sql.open(path.join(__dirname, 'database.sqlite3')).then(db => new commando.SQLiteProvider(db))
 ).catch(console.error);
 
 // const defclient = new Discord.Client();
