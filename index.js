@@ -1,4 +1,5 @@
 const commando = require('discord.js-commando');
+const path = require('path');
 const discord = require('discord.js');
 const sql = require('sqlite');
 const client = new commando.CommandoClient({
@@ -53,7 +54,6 @@ client.setProvider(
 ).catch(console.error);
 
 // const defclient = new Discord.Client();
-const path = require('path');
 const chalk = require('chalk');
 const error = chalk.bold.red;
 const warn = chalk.keyword('orange');
