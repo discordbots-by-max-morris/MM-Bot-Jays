@@ -8,7 +8,7 @@
     "bath": "^2.1.1",
     "browserify": "^16.2.3",
     "chalk": "^2.4.2",
-    "clalk": "^1.0.0",
+    "canvas": "^1.6.7",
     "common-tags": "^1.8.0",
     "discord.js": "^11.4.2",
     "discord.js-commando": "^0.10.0",
