@@ -58,7 +58,6 @@ const chalk = require('chalk');
 const error = chalk.bold.red;
 const warn = chalk.keyword('orange');
 const debug = chalk.cyan;
-const sqlite = require('sqlite');
 const sql = require('sqlite');
 const { oneLine } = require('common-tags');
 const ms = require('ms');
