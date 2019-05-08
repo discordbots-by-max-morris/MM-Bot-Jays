@@ -80,6 +80,7 @@ client.registry
     ['economy', 'Economy'],
     ['search', 'search'],
     ['moderation', 'Moderation'],
+    ['info', 'info'],
     ['team', 'Team'],
     ['random', 'Random'],
     ['admin', 'Admin'],
