@@ -35,7 +35,7 @@ module.exports = class WarnCommand extends Command {
     }
 
     run(msg, args) {
-        const modlogs = msg.guild.channels.get(msg.guild.settings.get('reports'));
+        const modlogs = msg.guild.channels.get('reports');
         if (!modlogs) return msg.say('This Command requires a channel set with the `modchannel` command.');
         if (!modlogs.permissionsFor(this.client.user).has('SEND_MESSAGES'))
             return msg.say('This Command requires the `Send Messages` Permission for the Mod Log Channel.');
