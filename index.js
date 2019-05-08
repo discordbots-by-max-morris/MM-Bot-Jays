@@ -88,7 +88,8 @@ client.registry
     ['util', 'util'],
     ['misc', 'Misc'],
     ['help', 'help'],
-    ['settings', 'Settings']
+    ['settings', 'Settings'],
+    ['avatar-edit', 'avatar-edit']
 	])
 	.registerDefaultGroups()
 	.registerDefaultCommands({
