@@ -55,15 +55,15 @@ class HelpCommand extends commando.Command {
 
                     reactions(result);
 
-                    await result.react("\:arrow_left:");
-                    await result.react("\:arrow_forward: ");
+                    await result.react("⬅️");
+                    await result.react("➡️");
                     await result.react("❌");
                 })
             }
 
             function reactions(result) {
                 const filter = (reaction, user) => {
-                    return ["\:arrow_left:", "\:arrow_forward:",  "❌"].includes(reaction.emoji.name) && user.id === message.author.id;
+                    return ["⬅️", "➡️",  "❌"].includes(reaction.emoji.name) && user.id === message.author.id;
                 };
                 result.awaitReactions(filter, {max: 1, maxEmojis: 1})
                     .then(collected => {
