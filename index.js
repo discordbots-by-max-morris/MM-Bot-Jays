@@ -90,7 +90,7 @@ client.registry
     ['help', 'help'],
     ['settings', 'Settings'],
     ['avatar-edit', 'avatar-edit'],
-    ['responce', 'Responce']
+    ['response', 'response']
 	])
 	.registerDefaultGroups()
 	.registerDefaultCommands({
