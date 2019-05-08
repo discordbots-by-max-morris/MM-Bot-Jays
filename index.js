@@ -91,7 +91,8 @@ client.registry
     ['help', 'help'],
     ['settings', 'Settings'],
     ['avatar-edit', 'avatar-edit'],
-    ['response', 'response']
+    ['response', 'response'],
+    ['role-manage', 'role-manage']
 	])
 	.registerDefaultGroups()
 	.registerDefaultCommands({
