@@ -1,6 +1,6 @@
 const commando = require('discord.js-commando');
 const discord = require('discord.js')
-module.exports = class PartnerCommand extends commando.Command
+class StartAPatrolCommand extends commando.Command
 {
     constructor(client) {
         super(client, {
@@ -19,7 +19,7 @@ module.exports = class PartnerCommand extends commando.Command
         });
     }
 
-    async run(message, args)
+    async run(message, member)
     {
         var myInfo = new discord.RichEmbed()
         .setTitle("Partner!")
@@ -31,4 +31,4 @@ module.exports = class PartnerCommand extends commando.Command
     }
 }
 
-module.exports = PartnerCommand
+module.exports = StartAPatrolCommand
