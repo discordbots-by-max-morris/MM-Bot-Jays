@@ -13,7 +13,6 @@ client
 	.on('warn', console.warn)
 	.on('debug', console.log)
 	.on('ready', () => {
-    client.user.setGame('@Gazer#3861 help')
 		console.log(`Client ready; logged in as ${client.user.username}#${client.user.discriminator} (${client.user.id})`);
 	})
 	.on('disconnect', () => { console.warn('Disconnected!'); })
