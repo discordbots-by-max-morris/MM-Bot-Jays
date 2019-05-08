@@ -1,5 +1,6 @@
 const commando = require('discord.js-commando');
 const discord = require('discord.js');
+const sql = require('sqlite');
 const client = new commando.CommandoClient({
   owner: '359835581456580618', // Your ID here.
   commandPrefix: 'A!', // The prefix of your bot.
