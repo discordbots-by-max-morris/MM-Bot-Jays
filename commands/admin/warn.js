@@ -1,75 +1,57 @@
-const commando = require('discord.js-commando');
-const discord = require('discord.js');
-const fs = require("fs");
-const ms = require("ms");
-const warns = JSON.parse(fs.readFileSync("./warnings.json", "utf8"));
+    
+const { Command } = require('discord.js-commando');
+const { RichEmbed } = require('discord.js');
+const { stripIndents } = require('common-tags');
 
-class WarnCommand extends commando.Command
-{
-    constructor(client)
-    {
-        super(client,{
+module.exports = class WarnCommand extends Command {
+    constructor(client) {
+        super(client, {
             name: 'warn',
-            group: 'admin',
+            group: 'moderation',
             memberName: 'warn',
-            description:'warn a user in discord'
+            description: 'Warns a user and logs the warn to the mod logs.',
+            guildOnly: true,
+            args: [
+                {
+                    key: 'member',
+                    prompt: 'What member do you want to warn?',
+                    type: 'member'
+                },
+                {
+                    key: 'reason',
+                    prompt: 'What do you want to set the reason as?',
+                    type: 'string',
+                    validate: reason => {
+                        if (reason.length < 140) return true;
+                        return 'Invalid Reason. Reason must be under 140 characters.';
+                    }
+                }
+            ]
         });
     }
     
-
-    async run(message, args)
-    {
-        if(!message.member.hasPermissions("MANAGE_MEMBER")) return message.reply("Sorry Pal!, You can't do that!.");
-        let wUser = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
-        if(!wUser) return message.reply("Couldn't find them");
-        if(wUser.hasPermission("MANAGE_MESSAGES")) return message.reply("You have permissions to warn a user");
-        let reason = args.split(/ +/).slice(1).join(' ')
-
-        if(!warns[wUser.id]) warns[wUser.id] = {
-            warns: 0
-        };
-
-        warns[wUser.id].warns++;
-        
-        fs.writeFile("./warnings.json", JSON.stringify(warns), (err) => {
-            if (err) console.log(err);
-        });
-
-        let warnEmbed = new discord.RichEmbed()
-        .setDescription("Warns", message.author.username)
-        .setColor("RANDOM")
-        .addField("Warned user", wUser.tag)
-        .addField("Warned In", message.channel)
-        .addField("Number of Warnigs", warns[wUser.id].warns)
-        .addField("Reason", reason);
-
-        let warnchannel = message.guild.channels.find(channel => channel.name === "reports");
-        if(!warnchannel) return message.channel.send("Couldn't find reports channel!");
-
-        warnchannel.send(warnEmbed);
-
-        if(warns[wUser.id].warns ==2){
-            let muterole = message.guild.roles.find("name", Muted)
-            if(!muterole) return message.reply("You should create a Mute role")
-
-            let mutetime = "10ms";
-            await(wUser.addRole(muterole.id));
-            message.reply(`<@${wUser.id}> has been muted`);
-
-            setTimeout(function(){
-                wUser.removeRole(muterole.id)
-                message.reply(`<@${wUser.id}> has been unmuted`)
-
-            }, ms(mutetime))
-        }
-        if(warns[wUser.id].warns == 6){
-            message.guild.member(wUser).ban(reason);
-            message.reply(`<@${wUser.id}> has been banned!`)
-        }
-
+    hasPermission(msg) {
+        return msg.member.hasPermission('KICK_MEMBERS') || msg.member.roles.has(msg.guild.settings.get('Staff'));
     }
-    
 
-}
-
-module.exports = WarnCommand;
+    run(msg, args) {
+        const modlogs = msg.guild.channels.get(msg.guild.settings.get('reports'));
+        if (!modlogs) return msg.say('This Command requires a channel set with the `modchannel` command.');
+        if (!modlogs.permissionsFor(this.client.user).has('SEND_MESSAGES'))
+            return msg.say('This Command requires the `Send Messages` Permission for the Mod Log Channel.');
+        if (!modlogs.permissionsFor(this.client.user).has('EMBED_LINKS'))
+            return msg.say('This Command requires the `Embed Links` Permission.');
+        const { member, reason } = args;
+        msg.say(':ok_hand:');
+        const embed = new RichEmbed()
+            .setAuthor(msg.author.tag, msg.author.displayAvatarURL)
+            .setColor(0xFFFF00)
+            .setTimestamp()
+            .setDescription(stripIndents`
+                **Member:** ${member.user.tag} (${member.id})
+                **Action:** Warn
+                **Reason:** ${reason}
+            `);
+        return modlogs.send({ embed });
+    }
+};
