@@ -4,9 +4,9 @@ class StartAPatrolCommand extends commando.Command
 {
     constructor(client) {
         super(client, {
-            name: 'Partner',
+            name: 'partner',
             group: 'moderation',
-            memberName: 'Partner',
+            memberName: 'partner',
             description: '',
             guildOnly: true,
             args: [
