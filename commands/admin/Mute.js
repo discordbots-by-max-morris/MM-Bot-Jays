@@ -39,7 +39,7 @@ module.exports = class MuteCommand extends Command {
         if (!msg.channel.permissionsFor(this.client.user).has('MANAGE_ROLES'))
             return msg.say('This Command requires the `Manage Roles` Permission.');
         const modlogs = msg.guild.channels.get('574597314488827935');
-        const mute_role = msg.guild.role.get('<@&573275045871484934>');
+        const mute_role = msg.guild.role.('<@&573275045871484934>');
         if (!mute_role) return msg.say('There is no mute role set.');
         if (!modlogs) return msg.say('This Command requires a channel set with the `modchannel` command.');
         if (!modlogs.permissionsFor(this.client.user).has('SEND_MESSAGES'))
