@@ -40,7 +40,7 @@ class HelpCommand extends commando.Command {
                 default: {
                     var help = new discord.RichEmbed()                 // Help main page.
                         .setTitle('Hello, I heard you wanted to partner?')
-                        .setDescription("Did you know that if you type: ``Hello``, \nI will reply back? Just try it out. \n\n**Hey bitch, this is my help menu's.**")
+                        .setDescription("Did you know that if you type: ``Hello``, \nI will reply back? Just try it out. \n\n**Hey mate!, this is my help menu's.**")
                         .setColor("RANDOM")
                         .setThumbnail(message.client.user.displayAvatarURL)
                         .setImage('https://cdn.discordapp.com/attachments/561986291131220008/564985306047053834/hi.jpg')
@@ -55,15 +55,15 @@ class HelpCommand extends commando.Command {
 
                     reactions(result);
 
-                    await result.react("⬅️");
-                    await result.react("➡️");
+                    await result.react("\:arrow_left:");
+                    await result.react("\:arrow_forward: ");
                     await result.react("❌");
                 })
             }
 
             function reactions(result) {
                 const filter = (reaction, user) => {
-                    return ["⬅️", "➡️",  "❌"].includes(reaction.emoji.name) && user.id === message.author.id;
+                    return ["\:arrow_left:", "\:arrow_forward:",  "❌"].includes(reaction.emoji.name) && user.id === message.author.id;
                 };
                 result.awaitReactions(filter, {max: 1, maxEmojis: 1})
                     .then(collected => {
@@ -71,11 +71,11 @@ class HelpCommand extends commando.Command {
                         reaction.remove(message.author.id);
 
                         switch (reaction.emoji.name) {
-                            case ("⬅️"): {
+                            case ("\:arrow_left:"): {
                                 createMessage(`profile`, result);
                             }
                                 break;
-                            case ("➡️"): {
+                            case ("\:arrow_forward: "): {
                                 createMessage(`games`, result);
                             }
                                 break;
