@@ -19,11 +19,11 @@ class StartAPatrolCommand extends commando.Command
         });
     }
 
-    async run(message, user)
+    async run(message, args)
     {
         var myInfo = new discord.RichEmbed()
         .setTitle("Partner!")
-        .setDescription(`Thank you ${user} you ***are*** a partner with Ace's hangout server`)
+        .setDescription(`Thank you ${args.user} you ***are*** a partner with Ace's hangout server`)
         .setColor("RANDOM")
         .setThumbnail(message.author.avatarURL)
         .setAuthor("Ace's bot")
