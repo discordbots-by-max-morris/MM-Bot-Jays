@@ -11,19 +11,19 @@ class StartAPatrolCommand extends commando.Command
             guildOnly: true,
             args: [
                 {
-                    key: 'member',
+                    key: 'user',
                     prompt: 'What member do you want to warn?',
-                    type: 'member'
+                    type: 'user'
                 }
             ]
         });
     }
 
-    async run(message, member)
+    async run(message, user)
     {
         var myInfo = new discord.RichEmbed()
         .setTitle("Partner!")
-        .setDescription(`Thank you ${member.user} you ***are*** a partner with Ace's hangout server`)
+        .setDescription(`Thank you ${user} you ***are*** a partner with Ace's hangout server`)
         .setColor("RANDOM")
         .setThumbnail(message.author.avatarURL)
         .setAuthor("Ace's bot")
