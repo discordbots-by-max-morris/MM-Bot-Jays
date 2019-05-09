@@ -30,5 +30,3 @@ module.exports = class PartnerCommand extends Command {
     annChan.sendEmbed(embed);
     };
   };
-
-module.exports = PartnerCommand
