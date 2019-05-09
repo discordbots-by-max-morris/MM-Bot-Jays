@@ -55,7 +55,7 @@ class HelpCommand extends commando.Command {
 
                     reactions(result);
 
-                    await result.react("⬅️");
+                    await result.react("");
                     await result.react("➡️");
                     await result.react("❌");
                 })
