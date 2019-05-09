@@ -29,5 +29,6 @@ module.exports = class WarnCommand extends Command {
       .setTimestamp();
     annChan.sendEmbed(embed);
     };
-  }
-};
+  };
+
+module.exports = WarnCommand;
