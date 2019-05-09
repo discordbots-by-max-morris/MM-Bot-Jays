@@ -20,7 +20,7 @@ module.exports = class SetUsernameCommand extends Command {
     }
     
     hasPermission(msg) {
-        return this.client.isOwner(msg.author);
+        return this.client.isGuildOwner(msg.author);
     }
 
     run(msg, args) {
