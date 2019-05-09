@@ -2,7 +2,7 @@ const { Command } = require('discord.js-commando');
 const { RichEmbed } = require('discord.js');
 const { stripIndents } = require('common-tags');
 
-module.exports = class WarnCommand extends Command {
+module.exports = class PartnerCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'partner',
@@ -31,4 +31,4 @@ module.exports = class WarnCommand extends Command {
     };
   };
 
-module.exports = WarnCommand;
+module.exports = PartnerCommand;
