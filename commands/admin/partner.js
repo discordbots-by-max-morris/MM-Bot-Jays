@@ -28,6 +28,6 @@ module.exports = class WarnCommand extends Command {
       .setColor('RANDOM')
       .setTimestamp();
     annChan.sendEmbed(embed);
-    });
+    };
   }
 };
