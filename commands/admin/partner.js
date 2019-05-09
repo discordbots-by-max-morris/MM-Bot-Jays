@@ -31,4 +31,4 @@ module.exports = class PartnerCommand extends Command {
     };
   };
 
-module.exports = PartnerCommand;
+module.exports = PartnerCommand
