@@ -21,7 +21,7 @@ module.exports = class PartnerCommand extends Command {
     }
     
   async run(message, args) {
-    const annChan = this.client.channels.get('575762162555944961');
+    const annChan = this.client.channels.get('574602169689309215');
     const embed = new RichEmbed()
       .setAuthor(message.author.username, message.author.avatarURL)
       .setDescription(`The user: ${args.member} Just clocked in it wills show the time they clocked in at the bottom`)
