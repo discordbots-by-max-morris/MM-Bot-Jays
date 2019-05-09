@@ -5,9 +5,9 @@ const { stripIndents } = require('common-tags');
 module.exports = class PartnerCommand extends Command {
     constructor(client) {
         super(client, {
-            name: 'partner',
+            name: 'clock-in',
             group: 'moderation',
-            memberName: 'partner',
+            memberName: 'clock-in',
             description: 'A user want to partner.',
             guildOnly: true,
             args: [
