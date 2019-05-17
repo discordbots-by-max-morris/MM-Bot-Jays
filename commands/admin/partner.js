@@ -41,7 +41,7 @@ module.exports = class PartnerCommand extends Command {
     }
     
   async run(message, args) {
-    const annChan = this.client.channels.get('575762162555944961');
+    const annChan = this.client.channels.get('553482011218804736');
     const embed = new RichEmbed()
       .setAuthor(message.author.username, message.author.avatarURL)
       .setDescription(`The user: ${args.member} Wants to partner!`)
